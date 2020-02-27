@@ -1,10 +1,11 @@
 package com.example.employee.model;
 
-import org.hibernate.annotations.Cascade;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
+import java.util.HashMap;
+import java.util.HashSet;
 
 @Entity
 @Table(name = "emp")
@@ -23,10 +24,28 @@ public class Emp implements Serializable {
     @NotBlank
     private String address;
 
-    @Cascade(org.hibernate.annotations.CascadeType.ALL)
-    @ManyToOne(cascade = CascadeType.ALL)
-    private Long deptId;
+    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @JoinColumn(name = "dept")
+    Dept dept = new Dept();
 
+    private Long dept_id;
+
+
+    public Dept getDept() {
+        return dept;
+    }
+//
+
+    public Long getDept_id() {
+        return dept_id;
+    }
+
+    public void setDept_id(Long dept_id) {
+        this.dept_id = dept_id;
+    }
+    public void setDept(Dept dept) {
+        this.dept = dept;
+    }
 
     public Long getId() {
         return id;
@@ -58,14 +77,6 @@ public class Emp implements Serializable {
 
     public void setAddress(String address) {
         this.address = address;
-    }
-
-    public Long getDept_id() {
-        return deptId;
-    }
-
-    public void setDept_id(Long dept_id) {
-        this.deptId = dept_id;
     }
 
     // Getters and Setters ... (Omitted for brevity)

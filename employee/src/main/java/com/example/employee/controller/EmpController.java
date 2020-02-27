@@ -1,7 +1,9 @@
 package com.example.employee.controller;
 
 import com.example.employee.exception.ResourceNotFoundException;
+import com.example.employee.model.Dept;
 import com.example.employee.model.Emp;
+import com.example.employee.repositroy.DeptRepo;
 import com.example.employee.repositroy.EmpRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +18,7 @@ public class EmpController {
 
     @Autowired
     EmpRepo emprepo;
+    DeptRepo deptRepo;
 
     // Get All Emp
     @GetMapping("/emp")
@@ -36,17 +39,13 @@ public class EmpController {
     // Update a Emp
     @PutMapping("/emp/{id}")
     public Emp updateEmp(@PathVariable(value = "id") Long noteId,
-                           @Valid @RequestBody Emp noteDetails) {
-
+                           @Valid @RequestBody Emp empDetails) {
         Emp emp = emprepo.findById(noteId)
                 .orElseThrow(() -> new ResourceNotFoundException("Emp", "id", noteId));
-
-        emp.setName(noteDetails.getName());
-        emp.setSalary(noteDetails.getSalary());
-        emp.setAddress(noteDetails.getAddress());
-        emp.setDept_id(noteDetails.getDept_id());
-
-
+        emp.setName(empDetails.getName());
+        emp.setSalary(empDetails.getSalary());
+        emp.setAddress(empDetails.getAddress());
+        emp.setDept_id(emp.getDept_id());
         Emp updatedEmp = emprepo.save(emp);
         return updatedEmp;
     }

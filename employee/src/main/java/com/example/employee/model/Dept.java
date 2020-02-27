@@ -1,11 +1,14 @@
 package com.example.employee.model;
 
 
+import net.bytebuddy.implementation.bind.annotation.Default;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "dept")
@@ -16,11 +19,29 @@ public class Dept implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long dept_id;
 
+
+
     @NotBlank
     private String name;
 
+    public Set<Emp> getEmp() {
+        return emp;
+    }
 
+    public void setEmp(Set<Emp> emp) {
+        this.emp = emp;
+    }
+
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "dept")
+    Set<Emp> emp= new HashSet<>();
+
+
+
+    @Column
     private Long staff;
+
+
+
 
     public Long getDept_id() {
         return dept_id;

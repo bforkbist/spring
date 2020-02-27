@@ -40,8 +40,6 @@ public class DeptController {
                 .orElseThrow(() -> new ResourceNotFoundException("Dept", "id", dept_id));
 
         dept.setName(deptDetails.getName());
-//        dept.setDept_id(deptDetails.getDept_id());
-        dept.setStaff(deptDetails.getStaff());
 
         Dept updatedDept = deptrepo.save(dept);
         return updatedDept;
