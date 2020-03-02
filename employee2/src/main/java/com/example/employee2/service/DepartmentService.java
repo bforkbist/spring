@@ -1,4 +1,4 @@
-package com.example.employee2.controller;
+package com.example.employee2.service;
 
 import com.example.employee2.exception.ResourceNotFoundException;
 import com.example.employee2.model.Department;

@@ -10,18 +10,14 @@ public class Manager {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long ManagerId;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "employeeId")
-//    private Long EmployeeId;
-    private Employee employee;
+    private Long EmployeeId;
+
 
     @NotBlank
     private String name;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "deptId")
-//    private Long DeptId;
-    private Department department;
+
+    private Long DeptId;
 
     public Long getManagerId() {
         return ManagerId;
@@ -31,21 +27,14 @@ public class Manager {
         ManagerId = managerId;
     }
 
-//    public Long getEmployeeId() {
-//        return EmployeeId;
-//    }
-//
-//    public void setEmployeeId(Long employeeId) {
-//        EmployeeId = employeeId;
-//    }
-
-    public Employee getEmployee() {
-        return employee;
+    public Long getEmployeeId() {
+        return EmployeeId;
     }
 
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
+    public void setEmployeeId(Long employeeId) {
+        EmployeeId = employeeId;
     }
+
 
     public String getName() {
         return name;
@@ -55,19 +44,13 @@ public class Manager {
         this.name = name;
     }
 
-//    public Long getDeptId() {
-//        return DeptId;
-//    }
-//
-//    public void setDeptId(Long deptId) {
-//        DeptId = deptId;
-//    }
-
-    public Department getDepartment() {
-        return department;
+    public Long getDeptId() {
+        return DeptId;
     }
 
-    public void setDepartment(Department department) {
-        this.department = department;
+    public void setDeptId(Long deptId) {
+        DeptId = deptId;
     }
+
+
 }

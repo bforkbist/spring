@@ -18,12 +18,9 @@ public class Employee {
 
     private Long Salary;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "deptId")
-//    private Long DeptId;
-    private Department department;
+    private Long DeptId;
 
-    private Long ManagerID;
+//    private Long ManagerId;
 
     public Long getEmployeeId() {
         return EmployeeId;
@@ -49,21 +46,21 @@ public class Employee {
         Designation = designation;
     }
 
-//    public Long getDeptId() {
-//        return DeptId;
+    public Long getDeptId() {
+        return DeptId;
+    }
+
+    public void setDeptId(Long deptId) {
+        DeptId = deptId;
+    }
+
+//    public long getManagerID() {
+//        return ManagerId;
 //    }
 //
-//    public void setDeptId(Long deptId) {
-//        DeptId = deptId;
+//    public void setManagerID(Long managerID) {
+//        ManagerId = managerID;
 //    }
-
-    public long getManagerID() {
-        return ManagerID;
-    }
-
-    public void setManagerID(Long managerID) {
-        ManagerID = managerID;
-    }
     public Long getSalary() {
         return Salary;
     }
@@ -72,11 +69,5 @@ public class Employee {
         Salary = salary;
     }
 
-    public Department getDepartment() {
-        return department;
-    }
 
-    public void setDepartment(Department department) {
-        this.department = department;
-    }
 }

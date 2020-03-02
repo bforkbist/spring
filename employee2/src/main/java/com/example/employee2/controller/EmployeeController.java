@@ -89,7 +89,7 @@ public class EmployeeController implements Serializable {
 //        }
         employee1.setName(employee.getName());
         employee1.setSalary(employee.getSalary());
-        employee1.setDepartment(employee.getDepartment());
+        employee1.setDeptId(employee.getDeptId());
 //        Optional<Department> dept = departmentRepo.findById(employee.getDeptId());
 //        if(dept.isPresent()){
 //            employee1.setDeptId(employee.getDeptId());

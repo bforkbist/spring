@@ -46,8 +46,8 @@ public class ManagerController implements Serializable {
     public Manager putmanager(@PathVariable(name = "id") Long id,@RequestBody Manager manager){
         Manager manager1 = managerRepo.findById(id).orElseThrow(()-> new ResourceNotFoundException("Manager","managerId",id));
         manager1.setName(manager.getName());
-        manager1.setDepartment(manager.getDepartment());
-        manager1.setEmployee(manager.getEmployee());
+        manager1.setDeptId(manager.getDeptId());
+        manager1.setEmployeeId(manager.getEmployeeId());
         return managerRepo.save(manager1);
     }
 
