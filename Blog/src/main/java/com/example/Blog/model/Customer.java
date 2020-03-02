@@ -20,8 +20,8 @@ public class Customer implements Serializable {
 
 //    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
 //    @JoinColumn(name = "blog")
-//    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "customer")
-//    Set<Blog> blog= new HashSet<>();
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "customer")
+    Set<Blog> blog= new HashSet<>();
 
     public Long getCustomerId() {
         return customerId;
@@ -47,11 +47,11 @@ public class Customer implements Serializable {
         this.age = age;
     }
 
-//    public Set<Blog> getBlog() {
-//        return blog;
-//    }
-//
-//    public void setBlog(Set<Blog> blog) {
-//        this.blog = blog;
-//    }
+    public Set<Blog> getBlog() {
+        return blog;
+    }
+
+    public void setBlog(Set<Blog> blog) {
+        this.blog = blog;
+    }
 }
