@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<!--<form>form-->
+    <form th:action="@{/department/add}" th:object="${department}" method="post">
+        <label for="Name">Department Name:</label><br>
+    <input type="text" id="Name" name="name" th:field="*{Name}" value="enter name" />
+        <input type="submit" value="submit" />
+    </form>
+    <a href="/department/list" class="btn btn-primary"><i
+            class="fas fa-user-plus ml-2"> Add Department</i></a>
+
+</body>
+</html>

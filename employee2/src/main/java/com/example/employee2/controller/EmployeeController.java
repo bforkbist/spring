@@ -31,18 +31,18 @@ public class EmployeeController implements Serializable {
 
     @PostMapping("/putemp")
     public Employee createEmployee(@Valid @RequestBody Employee employee){
-        Optional<Department> dept = departmentRepo.findById(employee.getDeptId());
-        if(dept.isPresent())
-            employee.setDeptId(dept.get().getDeptId());
-        else{
-            throw new ResourceNotFoundException("Employee","EmployeeId",employee);
-        }
-        Optional<Employee> emp = employeeRepo.findById(employee.getManagerID());
-        if(emp.isPresent())
-            employee.setManagerID(emp.get().getEmployeeId());
-        else{
-            throw new ResourceNotFoundException("Employee","EmployeeId",employee);
-        }
+//        Optional<Department> dept = departmentRepo.findById(employee.getDeptId());
+//        if(dept.isPresent())
+//            employee.setDeptId(dept.get().getDeptId());
+//        else{
+//            throw new ResourceNotFoundException("Employee","EmployeeId",employee);
+//        }
+//        Optional<Employee> emp = employeeRepo.findById(employee.getManagerID());
+//        if(emp.isPresent())
+//            employee.setManagerID(emp.get().getEmployeeId());
+//        else{
+//            throw new ResourceNotFoundException("Employee","EmployeeId",employee);
+//        }
         return employeeRepo.save(employee);
     }
     @GetMapping("/getemp/{id}")
@@ -83,16 +83,17 @@ public class EmployeeController implements Serializable {
         Employee employee1 = employeeRepo.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Employee", "employeeId", id));
         employee1.setDesignation(employee.getDesignation());
-        Optional<Employee> emp1= employeeRepo.findById(employee.getEmployeeId());
-        if(emp1.isPresent()){
-            employee1.setManagerID(employee.getManagerID());
-        }
+//        Optional<Employee> emp1= employeeRepo.findById(employee.getEmployeeId());
+//        if(emp1.isPresent()){
+//            employee1.setManagerID(employee.getManagerID());
+//        }
         employee1.setName(employee.getName());
         employee1.setSalary(employee.getSalary());
-        Optional<Department> dept = departmentRepo.findById(employee.getDeptId());
-        if(dept.isPresent()){
-            employee1.setDeptId(employee.getDeptId());
-        }
+        employee1.setDepartment(employee.getDepartment());
+//        Optional<Department> dept = departmentRepo.findById(employee.getDeptId());
+//        if(dept.isPresent()){
+//            employee1.setDeptId(employee.getDeptId());
+//        }
         Employee updatedEmp = employeeRepo.save(employee1);
         return updatedEmp;
     }

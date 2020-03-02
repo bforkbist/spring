@@ -28,7 +28,7 @@ public interface EmployeeRepo extends JpaRepository<Employee, Long> {
     @Query(value = "SELECT salary FROM Employee",nativeQuery = true)
     List<Employee> Q6();
 
-    @Query(value = "SELECT salary FROM Employee",nativeQuery = true)
+    @Query(value = "Select salary from Employee order by deptId",nativeQuery = true)
     List<Employee> Q7();
 
     @Query(value = "SELECT salary FROM Employee",nativeQuery = true)
@@ -37,6 +37,6 @@ public interface EmployeeRepo extends JpaRepository<Employee, Long> {
     @Query(value = "SELECT salary FROM Employee",nativeQuery = true)
     List<Employee> Q9();
 
-    @Query(value = "SELECT salary FROM Employee",nativeQuery = true)
+    @Query(value = "update Employee set salary=(((salary)*20)/100);",nativeQuery = true)
     List<Long> Q10();
 }
