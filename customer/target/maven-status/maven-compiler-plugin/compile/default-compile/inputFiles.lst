@@ -1,0 +1,11 @@
+/home/consultadd/Desktop/playground/spring/customer/src/main/java/com/crm/customer/model/Customer.java
+/home/consultadd/Desktop/playground/spring/customer/src/main/java/com/crm/customer/model/Product.java
+/home/consultadd/Desktop/playground/spring/customer/src/main/java/com/crm/customer/Repository/CustomerRepo.java
+/home/consultadd/Desktop/playground/spring/customer/src/main/java/com/crm/customer/model/Order.java
+/home/consultadd/Desktop/playground/spring/customer/src/main/java/com/crm/customer/controller/ProductController.java
+/home/consultadd/Desktop/playground/spring/customer/src/main/java/com/crm/customer/controller/CustomerController.java
+/home/consultadd/Desktop/playground/spring/customer/src/main/java/com/crm/customer/controller/OrderController.java
+/home/consultadd/Desktop/playground/spring/customer/src/main/java/com/crm/customer/Repository/ProductRepo.java
+/home/consultadd/Desktop/playground/spring/customer/src/main/java/com/crm/customer/CustomerApplication.java
+/home/consultadd/Desktop/playground/spring/customer/src/main/java/com/crm/customer/Repository/OrderRepo.java
+/home/consultadd/Desktop/playground/spring/customer/src/main/java/com/crm/customer/exception/ResourceNotFound.java
